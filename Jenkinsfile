@@ -8,12 +8,12 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat 'SET MSBuildPath=H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\ SET BuildPath=%PROJECTS_HOME%\\DevopsTest  CD %BuildPath%  H:\\Install\\nuget.exe restore "%BuildPath%\\DevopsTest.sln"  "%MSBuildPath%\\MSBuild.exe" "%BuildPath%\\DevopsTest.sln" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
+        bat 'SET MSBuildPath=H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\ SET BuildPath=%JENKINS_HOME%\\workspace\\%ITEM_FULL_NAME%\\DevopsTest  CD %BuildPath%  H:\\Install\\nuget.exe restore "%BuildPath%\\DevopsTest.sln"  "%MSBuildPath%\\MSBuild.exe" "%BuildPath%\\DevopsTest.sln" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
       }
     }
     stage('Unit Test') {
       steps {
-        bat 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe %PROJECTS_HOME%\\DevopsTest\\DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
+        bat 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe %JENKINS_HOME%\\workspace\\%ITEM_FULL_NAME%\\DevopsTest\\DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
       }
     }
   }
