@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Nuget Restore') {
       steps {
-        bat '"H:\\Install\\nuget.exe" restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln"'
+        bat '"H:\\Install\\snuget.exe" restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln"'
       }
     }
     stage('Build') {
