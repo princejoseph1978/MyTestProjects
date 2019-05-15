@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat '"%MSBuildPath%\\MSBuild.exe" "%BuildPath%\\DevopsTest.sln" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
+        bat 'SET MSBuildPath=H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\ SET BuildPath=%PROJECTS_HOME%\\DevopsTest  CD %BuildPath%  H:\\Install\\nuget.exe restore "%BuildPath%\\DevopsTest.sln"  "%MSBuildPath%\\MSBuild.exe" "%BuildPath%\\DevopsTest.sln" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
       }
     }
     stage('Unit Test') {
