@@ -13,7 +13,8 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat '"H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Clean;Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
+        bat(script: '"H:\\Install\\nuget.exe" restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln"', label: 'Nuget Restore')
+        bat(script: '"H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Clean;Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false', label: 'MsBuild')
       }
     }
     stage('Unit Test') {
