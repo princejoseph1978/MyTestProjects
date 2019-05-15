@@ -10,7 +10,8 @@ pipeline {
       steps {
         changeAsmVer '1.0.0.$BUILD_NUMBER'
         bat(script: '"H:\\Install\\nuget.exe" restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln"', label: 'Nuget Restore')
-        bat(script: '"H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Clean;Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false', label: 'MsBuild')
+        bat(script: '"H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Clean;Build /p:Configuration=Release', label: 'MsBuild')
+        bat(script: 'C:\\Program Files\\dotnet\\dotnet.exe publish "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /p:PublishDir="%JENKINS_HOME%\\workspace\\MyTestProjects_master\\Publish" ', label: 'Publish')
       }
     }
     stage('Unit Test') {
