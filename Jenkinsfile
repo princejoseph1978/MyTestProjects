@@ -13,7 +13,7 @@ SET BuildPath=%PROJECTS_HOME%\\DevopsTest
 
 CD %BuildPath%
 
-.nuget\\nuget restore "%BuildPath%\\DevopsTest.sln"
+H:\\Install\\nuget.exe restore "%BuildPath%\\DevopsTest.sln"
 
 "%MSBuildPath%\\MSBuild.exe" "%BuildPath%\\DevopsTest.csproj" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'''
       }
