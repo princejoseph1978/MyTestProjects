@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat 'H:\\Install\\nuget.exe restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" "H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
+        bat 'H:\\Install\\nuget.exe restore "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" "H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe" "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.sln" /t:Clean;Build /p:DeployOnBuild=true /p:Configuration=Release /p:PublishProfile=OnRoot_Output /p:RestorePackages=false'
       }
     }
     stage('Unit Test') {
