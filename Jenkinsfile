@@ -20,8 +20,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        bat(label: 'Create Backup', script: 'xcopy /S /Y /I "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test" "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Backups\\DevopsTest_%GIT_COMMIT%"')
         bat(script: 'xcopy /S /Y /I "%JENKINS_HOME%\\workspace\\%JOB_NAME:/=_%\\DevopsTest\\bin\\Release\\Publish" "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test"', label: 'Deploy Files')
+        bat(label: 'Create Backup', script: 'xcopy /S /Y /I "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test" "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Backups\\DevopsTest_%GIT_COMMIT%"')
       }
     }
   }
