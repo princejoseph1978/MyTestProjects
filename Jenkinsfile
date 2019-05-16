@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        bat 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe %JENKINS_HOME%\\workspace\\%JOB_NAME:/=_%_%BRANCH_NAME%\\DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
+        bat 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe %JENKINS_HOME%\\workspace\\%JOB_NAME:/=_%\\DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
       }
     }
     stage('Deploy') {
