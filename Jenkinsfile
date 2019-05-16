@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        bat 'xcopy /I "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest\\bin\\Release\\Publish" "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test"'
+        bat 'xcopy /Y "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest\\bin\\Release\\Publish" "H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test"'
       }
     }
   }
