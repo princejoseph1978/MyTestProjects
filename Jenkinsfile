@@ -18,5 +18,10 @@ pipeline {
         bat 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe %JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
       }
     }
+    stage('Deploy') {
+      steps {
+        bat 'robocopy "%JENKINS_HOME%\\workspace\\MyTestProjects_master\\DevopsTest\\bin\\Release\\Publish H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test'
+      }
+    }
   }
 }
