@@ -8,3 +8,8 @@
 /DevopsTest.Tests/bin/Debug
 /DevopsTest.Tests/obj
 /packages
+/DevopsTest.Tests/bin/Release
+/TestResults/3890cd17-675e-48ce-b48e-25942e037b29
+/Backup
+*.user
+/UpgradeLog.htm
