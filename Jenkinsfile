@@ -1,21 +1,5 @@
 pipeline {
   agent any
-  
-  environment {
-        GIT_URL = 'https://github.com/princejoseph1978/MyTestProjects'
-		GIT_BRANCH = 'master'
-		GIT_CREDENTIAL_TOKEN = 'b5b61d717b7fffe9c880a483321d0056f8cc9561'
-		PROJ_SLN_NAME = 'DevopsTest.sln'
-		NUGET_PATH = 'H:\\Install\\nuget.exe'
-		MSBUILD_PATH = 'H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe'
-		UNIT_TESTEXE_PATH = 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe'
-		UNIT_TESTDLL_PATH = 'DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
-		PUBLISH_PROFILENAME = 'FolderProfile'
-		PUBLISH_PATH = 'DevopsTest\\bin\\Release\\Publish'
-		DEPLOY_PATH = 'H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test'
-		DEPLOY_BACKUP_PATH = 'H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Backups'
-		BACKUP_FOLDER_PREFIX = 'DevopsTest'		
-	}
   stages {
     stage('Source From Git') {
       steps {
@@ -40,5 +24,20 @@ pipeline {
         bat(label: 'Create Backup', script: 'xcopy /S /Y /I "%DEPLOY_PATH%" "%DEPLOY_BACKUP_PATH%\\%BACKUP_FOLDER_PREFIX%_%GIT_COMMIT%"')
       }
     }
+  }
+  environment {
+    GIT_URL = 'https://github.com/princejoseph1978/MyTestProjects'
+    GIT_BRANCH = 'master'
+    GIT_CREDENTIAL_TOKEN = 'b5b61d717b7fffe9c880a483321d0056f8cc9561'
+    PROJ_SLN_NAME = 'DevopsTest.sln'
+    NUGET_PATH = 'H:\\Install\\nuget.exe'
+    MSBUILD_PATH = 'H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe'
+    UNIT_TESTEXE_PATH = 'H:\\Programs\\VisualStudio\\2017\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe'
+    UNIT_TESTDLL_PATH = 'DevopsTest.Tests\\bin\\Release\\DevopsTest.Tests.dll'
+    PUBLISH_PROFILENAME = 'FolderProfile'
+    PUBLISH_PATH = 'DevopsTest\\bin\\Release\\Publish'
+    DEPLOY_PATH = 'H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Test'
+    DEPLOY_BACKUP_PATH = 'H:\\CodeWorkspace\\PrinceWorkSpace\\Deploy\\DevopsTest\\Backups'
+    BACKUP_FOLDER_PREFIX = 'DevopsTest'
   }
 }
