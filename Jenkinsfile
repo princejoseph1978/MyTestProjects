@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Source From Git') {
       steps {
-        git(url: '%GIT_URL%', branch: '%GIT_BRANCH%', changelog: true, credentialsId: 'b884ac43c45d5e55a3a1c0a7b46644a41cfb9b96')
+        git(url: '%GIT_URL%', branch: '%GIT_BRANCH%', changelog: true, credentialsId: '9df2a8be7ec25d6da63599237a12ec854e7cc0dc')
       }
     }
     stage('Build') {
