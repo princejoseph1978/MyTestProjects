@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Source From Git') {
       steps {
-        git(url: 'https://github.com/princejoseph1978/MyTestProjects', branch: 'master', changelog: true, credentialsId: 'ae1fe1f30cccf62fa5785e309b9dbd5936e65842')
+        git(url: 'https://github.com/princejoseph1978/MyTestProjects', branch: 'master', changelog: true, credentialsId: 'f65e2e2d77d4316004df8d9db48e2b25812b797c')
       }
     }
     stage('Build') {
@@ -25,10 +25,7 @@ pipeline {
       }
     }
   }
-  environment {
-    GIT_URL = 'https://github.com/princejoseph1978/MyTestProjects'
-    GIT_BRANCH = 'master'
-    GIT_CREDENTIAL_TOKEN = 'b5b61d717b7fffe9c880a483321d0056f8cc9561'
+  environment {   
     PROJ_SLN_NAME = 'DevopsTest.sln'
     NUGET_PATH = 'H:\\Install\\nuget.exe'
     MSBUILD_PATH = 'H:\\Programs\\VisualStudio\\2017\\MSBuild\\15.0\\Bin\\MSBuild.exe'
